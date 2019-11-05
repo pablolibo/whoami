@@ -19,6 +19,11 @@ func main() {
         fmt.Fprintf(os.Stdout, "I'm %s\n", hostname)
  	fmt.Fprintf(w, "I'm %s\n", hostname)
     })
+    http.HandleFunc("/hello", func(w http.ResponseWriter, r *http.Request) {
+        fmt.Fprintf(os.Stdout, "Version 1")
+ 	fmt.Fprintf(w, "version 1")
+    })
+
 
 
     log.Fatal(http.ListenAndServe(":" + port, nil))
